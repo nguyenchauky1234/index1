@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ẩm thực Long An</title>
+  <meta name="description" content="Giới thiệu ẩm thực Long An: món nên thử, đặc sản mua về, gợi ý quán và mẹo ăn chơi." />
+  <style>
+    :root{
+      --bg:#0f172a;          /* slate-900 */
+      --panel:#111827;       /* gray-900 */
+      --text:#e5e7eb;        /* gray-200 */
+      --muted:#9ca3af;       /* gray-400 */
+      --brand:#22c55e;       /* green-500 */
+      --accent:#fde68a;      /* amber-200 */
+      --card:#0b1220;        /* darker */
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;background:linear-gradient(180deg,var(--bg),#0b1020 70%);color:var(--text)}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin-inline:auto;padding:24px}
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(180%) blur(8px);
+      background:linear-gradient(90deg,rgba(17,24,39,.85),rgba(17,24,39,.6));
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{display:flex;align-items:center;gap:16px;justify-content:space-between;padding:12px 24px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2px}
+    .logo .dot{width:10px;height:10px;border-radius:50%;background:var(--brand);box-shadow:0 0 18px var(--brand)}
+    .menu{display:flex;gap:14px;font-weight:600}
+    .menu a{padding:8px 10px;border-radius:10px}
+    .menu a:hover{background:rgba(255,255,255,.06)}
+
+    .hero{display:grid;gap:18px;grid-template-columns:1.1fr .9fr;align-items:center;padding:40px 24px}
+    .hero h1{font-size:clamp(28px,5vw,44px);line-height:1.1;margin:.2em 0}
+    .tag{display:inline-flex;align-items:center;gap:8px;background:rgba(34,197,94,.1);color:#b9f6ca;padding:6px 12px;border:1px solid rgba(34,197,94,.35);border-radius:999px;font-size:14px}
+    .hero p{color:var(--muted);max-width:60ch}
+    .hero .panel{background:linear-gradient(160deg,var(--panel),#0b1220);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .hero img{width:100%;height:180px;object-fit:cover;border-radius:12px;border:1px solid rgba(255,255,255,.08)}
+
+    .section{padding:14px 24px 40px}
+    .section h2{font-size:clamp(22px,4vw,32px);margin:10px 0 16px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:linear-gradient(180deg,var(--card),#0a0f1a);border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+    .card img{width:100%;height:170px;object-fit:cover;border-bottom:1px solid rgba(255,255,255,.08)}
+    .card .body{padding:14px}
+    .card h3{margin:0 0 6px;font-size:18px}
+    .badge{display:inline-block;background:rgba(253,230,138,.15);border:1px solid rgba(253,230,138,.35);color:var(--accent);padding:2px 8px;border-radius:999px;font-size:12px}
+    .meta{color:var(--muted);font-size:14px}
+
+    .tips{display:grid;grid-template-columns:1.3fr .7fr;gap:16px}
+    .note{background:linear-gradient(160deg,#101826,#0b1220);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:16px}
+    .note li{margin:6px 0;color:var(--muted)}
+    .table{width:100%;border-collapse:collapse;border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden}
+    .table th,.table td{padding:10px;border-bottom:1px solid rgba(255,255,255,.06);text-align:left}
+    .table th{background:rgba(255,255,255,.04)}
+
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .btn{background:linear-gradient(180deg,#16a34a,#15803d);border:1px solid rgba(34,197,94,.55);color:#072b12;padding:10px 14px;border-radius:12px;font-weight:800;letter-spacing:.3px}
+    .btn.alt{background:transparent;color:var(--text);border:1px dashed rgba(255,255,255,.3)}
+
+    footer{padding:30px 24px;color:var(--muted);border-top:1px solid rgba(255,255,255,.06)}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .hero .panel{grid-template-columns:1fr 1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .tips{grid-template-columns:1fr}
+    }
+    @media (max-width: 620px){
+      .hero .panel{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav container">
+      <div class="logo"><span class="dot"></span> Ẩm thực Long An</div>
+      <div class="menu">
+        <a href="#gioi-thieu">Giới thiệu</a>
+        <a href="#mon-nen-thu">Món nên thử</a>
+        <a href="#dac-san">Đặc sản mua về</a>
+        <a href="#meo">Mẹo ăn chơi</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero" id="gioi-thieu">
+      <div>
+        <span class="tag">Miền Tây mến thương • Long An</span>
+        <h1>Hương vị mộc mạc từ đồng lúa, sông Vàm Cỏ</h1>
+        <p>
+          Long An không ồn ào, nhưng ẩm thực lại đậm đà và hiếu khách. Từ những món dân dã ở chợ quê
+          đến đặc sản trứ danh như <strong>rượu đế Gò Đen</strong>, <strong>mắm còng Cần Giuộc</strong>, hay gạo thơm
+          <strong>Nàng Thơm Chợ Đào</strong> – tất cả tạo nên bản sắc riêng khó quên.
+        </p>
+        <div class="cta">
+          <a class="btn" href="#mon-nen-thu">Khám phá ngay</a>
+          <a class="btn alt" href="#dac-san">Đặc sản mua về</a>
+        </div>
+      </div>
+      <div class="panel">
+        <!-- Bạn có thể thay ảnh bằng ảnh thật (thư mục images/...) -->
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKFjig9apQwhKROtDTrrM5vjvI337LPqlteA&s" alt="Quầy hàng ẩm thực chợ quê Long An" />
+        <img src="https://www.vietfuntravel.com.vn/image/data/Blog/dac-san/top-10-mon-an-dan-da-thom-ngon-nuc-tieng-o-mien-tay-nam-bo/top-10-mon-an-dan-da-thom-ngon-nuc-tieng-o-mien-tay-nam-bo-8.jpg" alt="Món ăn dân dã miền Tây" />
+        <img src="https://image.plo.vn/w1000/Uploaded/2025/rykxqqskxq/2019_08_24/dong-lua-long-an5_VTTD.JPG.webp" alt="Cánh đồng lúa Long An" />
+        <img src="images/song-vam-co.jpg" alt="Sông Vàm Cỏ chiều hoàng hôn" />
+      </div>
+    </section>
+
+    <!-- Món nên thử -->
+    <section class="section" id="mon-nen-thu">
+      <h2>Món nên thử</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="https://baotayninh.vn/image/news/2013/20130127/fckimage/19061473741080_mamcong.jpg" alt="Mắm còng Cần Giuộc" />
+          <div class="body">
+            <h3>Mắm còng Cần Giuộc</h3>
+            <p class="meta">Mặn mà – ăn kèm khế, chuối chát, rau vườn.</p>
+            <span class="badge">Đậm chất sông nước</span>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://eggyolk.vn/wp-content/uploads/2025/01/Cach-lam-banh-tet-bang-la-chuoi.jpg" alt="Bánh tét Long An" />
+          <div class="body">
+            <h3>Bánh tét lá chuối</h3>
+            <p class="meta">Nhân đậu xanh, thịt mỡ; dẻo thơm hạt nếp đồng.</p>
+            <span class="badge">Quà quê</span>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqZBC208uc0Y13IxgeTVzxJLnVcIwnwlhe8Q&s" alt="Bún nước lèo kiểu miền Tây" />
+          <div class="body">
+            <h3>Bún nước lèo</h3>
+            <p class="meta">Nước dùng từ mắm, ăn kèm cá lóc, rau sống đồng nội.</p>
+            <span class="badge">Dân dã</span>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://cdn.shopify.com/s/files/1/0367/6189/4956/files/image-2_480x480.jpg?v=1701326974" alt="Canh chua cá và bông điên điển" />
+          <div class="body">
+            <h3>Canh chua miền Tây</h3>
+            <p class="meta">Chua thanh từ me, thơm; thêm bông điên điển theo mùa.</p>
+            <span class="badge">Mùa nước nổi</span>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://banhtrangmuoitayninh.com/thumbs/540x630x1/upload/product/img8768-7809.jpg" alt="Bánh tráng Long An" />
+          <div class="body">
+            <h3>Bánh tráng phơi sương</h3>
+            <p class="meta">Mềm thơm; cuốn thịt luộc, tôm, rau thơm rất bắt vị.</p>
+            <span class="badge">Cuốn là ghiền</span>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://i.ytimg.com/vi/zvlct2ZXhj8/sddefault.jpg" alt="Cá kho tộ" />
+          <div class="body">
+            <h3>Cá kho tộ</h3>
+            <p class="meta">Thịt cá săn, vị mặn ngọt hài hòa; ăn cùng cơm gạo thơm.</p>
+            <span class="badge">Cơm nhà</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Đặc sản mua về -->
+    <section class="section" id="dac-san">
+      <h2>Đặc sản mua về</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="https://thamhiemmekong.com/wp-content/uploads/2022/04/ruougoden01.jpg" alt="Rượu đế Gò Đen" />
+          <div class="body">
+            <h3>Rượu đế Gò Đen</h3>
+            <p class="meta">Nổi tiếng lâu đời; thơm nồng từ gạo ngon.</p>
+            <span class="badge">Thưởng nhấp</span>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://gaongononline.com/wp-content/uploads/2019/11/mua-gao-nang-thom-cho-dao-tui-5kg-o-dau-.jpg" alt="Gạo Nàng Thơm Chợ Đào" />
+          <div class="body">
+            <h3>Gạo Nàng Thơm Chợ Đào</h3>
+            <p class="meta">Hạt dài, dẻo, thơm – nấu cơm rất đưa đẩy món mặn.</p>
+            <span class="badge">Gạo ngon</span>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://viettourist.com/resources/images/Blog-BienDao/mietvuon-6.jpg" alt="Trái cây miệt vườn" />
+          <div class="body">
+            <h3>Trái cây miệt vườn</h3>
+            <p class="meta">Thanh long, chanh, chôm chôm… tươi theo mùa.</p>
+            <span class="badge">Theo vụ</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="note" style="margin-top:18px">
+        <strong>Mẹo nhỏ:</strong>
+        <ul>
+          <li>Mua ở cơ sở có nhãn mác, địa chỉ rõ ràng.</li>
+          <li>Hỏi thử cách bảo quản và hạn dùng, đặc biệt rượu – mắm.</li>
+          <li>Ưu tiên đặc sản theo mùa để hương vị đạt chuẩn.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Mẹo ăn chơi & chi phí tham khảo -->
+    <section class="section" id="meo">
+      <h2>Mẹo ăn chơi</h2>
+      <div class="tips">
+        <div class="note">
+          <ul>
+            <li><strong>Buổi sáng</strong>: thử tô bún nước lèo/hu tieu; uống cà phê vỉa hè.</li>
+            <li><strong>Buổi trưa</strong>: cơm với cá kho tộ, canh chua – đúng vị cơm nhà.</li>
+            <li><strong>Buổi tối</strong>: ghé chợ đêm/ven sông thưởng thức đồ nướng, bánh tráng cuốn.</li>
+            <li><strong>Mùa nước nổi</strong> (khoảng 9–11): bông điên điển, cá linh là đặc sản theo mùa.</li>
+          </ul>
+        </div>
+        <div>
+          <table class="table" aria-label="Bảng chi phí tham khảo">
+            <thead>
+              <tr><th>Món/đặc sản</th><th>Khẩu phần</th><th>Giá tham khảo (VND)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Bún nước lèo</td><td>1 tô</td><td>35.000 – 55.000</td></tr>
+              <tr><td>Cơm + cá kho tộ</td><td>1 phần</td><td>45.000 – 70.000</td></tr>
+              <tr><td>Bánh tráng cuốn</td><td>1 đĩa</td><td>40.000 – 65.000</td></tr>
+              <tr><td>Rượu đế Gò Đen</td><td>500 ml</td><td>80.000 – 150.000</td></tr>
+              <tr><td>Gạo Nàng Thơm Chợ Đào</td><td>5 kg</td><td>140.000 – 220.000</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Liên hệ / Ghi chú -->
+    <section class="section" id="lien-he">
+      <h2>Tài nguyên & ghi chú</h2>
+      <div class="note">
+        <p>Trang này do bạn tự sưu tầm nội dung. Hãy thay ảnh mẫu trong thư mục <code>images/</code> bằng ảnh thật của bạn, và cập nhật thông tin quán ăn cụ thể nếu cần.</p>
+        <p>Nếu đưa lên mạng nội bộ/trường học, đặt file là <code>index.html</code> và tạo thư mục <code>images</code> để chứa ảnh.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div>© 2025 Ẩm thực Long An • Thiết kế bởi bạn</div>
+  </footer>
+
+</body>
+</html>
